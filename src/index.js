@@ -1,7 +1,7 @@
-import "babel-polyfill";
-import "element-closest";
+import "./node_modules/babel-polyfill";
+import "./node_modules/element-closest";
 import "./index.css";
-import React, { Component } from "react";
+import React, {Component} from "./node_modules/react";
 import YearInput from "./components/YearInput";
 import PickerPanel from "./components/PickerPanel/index";
 
@@ -11,12 +11,10 @@ class YearPicker extends Component {
     this.state = {
       currentYear: this.props.selected ? +this.props.selected : "",
       yearIsSelected: false,
-      selectedYear: this.props.selected
-        ? +this.props.selected
-        : new Date().getFullYear(),
+      selectedYear: this.props.selected ? +this.props.selected : new Date().getFullYear(),
       panelIsOpen: false,
       panelTop: 0,
-      panelLeft: 0
+      panelLeft: 0,
     };
   }
 
@@ -27,7 +25,7 @@ class YearPicker extends Component {
       "scroll",
       function(event) {
         this.panelPosition();
-      }.bind(this)
+      }.bind(this),
     );
 
     document.addEventListener(
@@ -36,7 +34,7 @@ class YearPicker extends Component {
         if (!event.target.closest(".year-picker")) {
           this.closePanel();
         }
-      }.bind(this)
+      }.bind(this),
     );
 
     document.addEventListener(
@@ -61,7 +59,7 @@ class YearPicker extends Component {
               this.closePanel();
           }
         }
-      }.bind(this)
+      }.bind(this),
     );
   }
 
@@ -87,52 +85,51 @@ class YearPicker extends Component {
       console.log("Сверху  по центру");
       const top = -230;
       const left = -120 + elementWidth / 2;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (!topTrue && botTrue && rightTrue && leftTrue) {
       console.log("Снизу по центру");
       const top = elementHeight + 10;
       const left = -120 + elementWidth / 2;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (halfBotTrue && halfTopTrue && leftTrue && !rightTrue) {
       console.log("Слева по центру");
       const top = -110 + elementHeight / 2;
       const left = -250;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (halfBotTrue && halfTopTrue && !leftTrue && rightTrue) {
       console.log("Справа по центру");
       const top = -110 + elementHeight / 2;
       const left = elementWidth + 10;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (!topTrue && botTrue && leftTrue && !rightTrue) {
       console.log("слева вниз");
       const top = 0;
       const left = -250;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (topTrue && !rightTrue && leftTrue && !botTrue) {
       console.log("слева вверх");
       const top = -220 + elementHeight;
       const left = -250;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (!topTrue && rightTrue && !leftTrue && botTrue) {
-      console.log("Справа вниз ");
       const top = 0;
       const left = elementWidth + 10;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     } else if (topTrue && rightTrue && !leftTrue && !botTrue) {
       console.log("Справа вверх");
       const top = -220 + elementHeight;
       const left = elementWidth + 10;
-      this.setState({ panelTop: top, panelLeft: left });
+      this.setState({panelTop: top, panelLeft: left});
     }
   };
 
   openPanel = event => {
     this.panelPosition();
-    this.setState({ panelIsOpen: true });
+    this.setState({panelIsOpen: true});
   };
 
   closePanel = event => {
-    this.setState({ panelIsOpen: false });
+    this.setState({panelIsOpen: false});
   };
 
   callback = () => {
@@ -146,9 +143,9 @@ class YearPicker extends Component {
       {
         selectedYear: year,
         currentYear: year,
-        yearIsSelected: true
+        yearIsSelected: true,
       },
-      () => this.callback()
+      () => this.callback(),
     );
     this.closePanel();
   };
@@ -157,24 +154,24 @@ class YearPicker extends Component {
     this.setState({
       selectedYear: new Date().getFullYear(),
       currentYear: "",
-      yearIsSelected: false
+      yearIsSelected: false,
     });
   };
 
   increaseYear = event => {
-    this.setState({ selectedYear: this.state.selectedYear + 1 });
+    this.setState({selectedYear: this.state.selectedYear + 1});
   };
 
   decreaseYear = event => {
-    this.setState({ selectedYear: this.state.selectedYear - 1 });
+    this.setState({selectedYear: this.state.selectedYear - 1});
   };
 
   jumpForward = event => {
-    this.setState({ selectedYear: this.state.selectedYear + 5 });
+    this.setState({selectedYear: this.state.selectedYear + 5});
   };
 
   jumpBackward = event => {
-    this.setState({ selectedYear: this.state.selectedYear - 5 });
+    this.setState({selectedYear: this.state.selectedYear - 5});
   };
 
   thisYear = event => {
@@ -182,7 +179,7 @@ class YearPicker extends Component {
     this.setState({
       currentYear: year,
       selectedYear: year,
-      yearIsSelected: true
+      yearIsSelected: true,
     });
     this.closePanel();
   };

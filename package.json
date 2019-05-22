@@ -1,11 +1,11 @@
 {
-  "author": "borisenkoandrei",
+  "author": "letsventuretech",
   "description": "A simple yearpicker component for React",
   "version": "0.3.7",
-  "homepage": "https://github.com/borisenkoandrei/year-picker",
+  "homepage": "https://github.com/letsventuretech/year-picker",
   "repository": {
     "type": "git",
-    "url": "https://github.com/borisenkoandrei/year-picker.git"
+    "url": "https://github.com/letsventuretech/year-picker.git"
   },
   "name": "react-year-picker",
   "private": false,
@@ -15,13 +15,17 @@
     "babel-polyfill": "^6.26.0",
     "element-closest": "^2.0.2",
     "font-awesome": "^4.7.0",
-    "react-fontawesome": "^1.6.1"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-fontawesome": "^1.6.1",
+    "react-scripts": "^3.0.1"
   },
   "peerDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
+  "license": "MIT",
   "scripts": {
     "clean": "rimraf lib/*",
     "start": "react-scripts start",
@@ -31,6 +35,7 @@
     "lib": "babel src --out-dir lib --copy-files -watch"
   },
   "devDependencies": {
+    "babel-cli": "^6.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
